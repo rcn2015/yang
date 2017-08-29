@@ -55,13 +55,48 @@ Route::group(['middleware' => 'web'], function () {
 
 
 Route::group(['namespace' => 'Admin'], function(){
-	Route::group(['prefix'=>'admin'],function(){
-		//Route::get('login/index','LoginController@index');
-			 Route::any('login/index',[
-			'uses'=>'LoginController@index',
-			]);
-	});
+    Route::group(['prefix'=>'admin'],function(){
+        //Route::get('login/index','LoginController@index');
+        // Route::get('left',['uses'=>'IndexController@left']);
+        Route::any('login/index',['uses'=>'LoginController@index']);
+        Route::get('index',['uses'=>'IndexController@index']);
+        Route::get('home',['uses'=>'HomeController@home']);
+
+        Route::get('user',['uses'=>'UserController@index']);
+        Route::get('userindex',['uses'=>'UserController@user']);
+
+        Route::get('banner',['uses'=>'BannerController@index']);
+        Route::get('bannerindex',['uses'=>'BannerController@banner']);
+        Route::get('banneradd',['uses'=>'BannerController@banneradd']);
+
+        Route::get('vip',['uses'=>'VipController@index']);
+        Route::get('vipindex',['uses'=>'VipController@vip']);
+
+        Route::get('connoisseur',['uses'=>'ConnoisseurController@index']);
+        Route::get('connindex',['uses'=>'ConnoisseurController@connoisseur']);
+
+        Route::get('topic',['uses'=>'TopicController@index']);
+        Route::get('topicindex',['uses'=>'TopicController@topic']);
+
+        Route::get('appointment',['uses'=>'AppointmentController@index']);
+        Route::get('appointmentindex',['uses'=>'AppointmentController@appointment']);
+
+        Route::get('balance',['uses'=>'BalanceController@index']);
+        Route::get('balanceindex',['uses'=>'BalanceController@balance']);
+
+        Route::get('changepwd',['uses'=>'ChangepwdController@index']);
+        Route::get('changepwdindex',['uses'=>'ChangepwdController@changepwd']);
+
+        Route::get('wish',['uses'=>'WishController@index']);
+        Route::get('wishindex',['uses'=>'WishController@wish']);
+
+        Route::get('opinion',['uses'=>'OpinionController@index']);
+        Route::get('opinionindex',['uses'=>'OpinionController@opinion']);
+    });
 });
+
+
+
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
